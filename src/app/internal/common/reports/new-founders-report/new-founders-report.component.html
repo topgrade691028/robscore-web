@@ -1,0 +1,95 @@
+<div class="m-t-6xl">
+    <div class="m-t-3xl">
+        <div class="p-l-l p-r-l m-b-xl">
+            <div class="flex-container flex-wrap">
+                <div class="report-header">
+                    <h1>Founders Currently in Stealth</h1>
+                    <h3>
+                        This returns matches any employees who have "stealth",
+                        "something new", in their occupation or current employer
+                        name.
+                    </h3>
+                </div>
+                <div>
+                    <form [formGroup]="form">
+                        <div class="search-container">
+                            <div class="search-box">
+                                <mat-form-field class="search-field">
+                                    <input
+                                        formControlName="search"
+                                        name="search"
+                                        matInput
+                                        placeholder="Search"
+                                    />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="entities; else spinner" class="flex-table">
+                <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Employer</th>
+                        <th>Occupation</th>
+                        <th>Location</th>
+                        <th>Last Crawled</th>
+                        <th>Start Date</th>
+                    </thead>
+                    <tbody class="m-b-s font-size-m">
+                        <tr *ngFor="let entity of getFilteredEntities()">
+                            <td>
+                                <a
+                                    href="https://linkedin.com/in/{{
+                                        entity.profile_id
+                                    }}"
+                                    >{{ entity.firstName }}
+                                    {{ entity.lastName }}</a
+                                >
+                            </td>
+                            <td>
+                                {{ entity.current_employer_linkedin_name }}
+                            </td>
+                            <td>
+                                {{ entity.occupation }}
+                            </td>
+                            <td>
+                                {{ entity.location }}
+                            </td>
+                            <td>
+                                {{ entity.last_updated | date : "mediumDate" }}
+                            </td>
+                            <td>
+                                {{ entity.start_date | date : "mediumDate" }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #spinner>
+                <div class="text-center m-t-2xl">
+                    <mat-spinner class="spinner"></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+<!--     linkedin_id: string;
+    publicIdentifier: string;
+    profile_id: string;
+    firstName: string;
+    lastName: string;
+    current_employer_linkedin_name: string;
+    location: string;
+    occupation: string;
+    last_updated: Date;
+    educationScore: number;
+    careerScore: number;
+    founderScore: number;
+    isOnWatchlist: number;
+    role_id: number;
+    level_id: number;
+    is_european: Boolean;
+    start_date: Date; -->

@@ -1,0 +1,13 @@
+<div class="p-l-l p-r-l">
+	<app-entity-list
+			[addEntityEnabled]="true"
+			[searchFields]="'name,email'"
+			[pathToViewComponent] = "'/i/admin/users'"
+			[fieldLabels] = "['Name', 'Roles', 'Email']"
+			[fields] = "['name', 'roles', 'email']"
+			[eventTypesForActiveEntities] = "eventTypesForActiveEntities"
+			[eventTypesForArchivedEntities] = "eventTypesForArchivedEntities"
+			[entities] = "getTheEntities()"
+			(event) = "eventHandler($event)">
+	</app-entity-list>
+</div>

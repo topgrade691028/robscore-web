@@ -1,0 +1,15 @@
+/.angular/cache
+**/dist
+**/dist-previous
+*.tmp
+*.swp
+~*
+.angular/
+node_modules
+*.swp
+*log
+.DS_Store
+.idea/
+.history/
+dist
+dist-docker/

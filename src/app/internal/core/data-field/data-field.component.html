@@ -1,0 +1,15 @@
+<div [ngClass]="getStyle()">
+    <div class="data-field-header">
+        {{ header }}
+    </div>
+    <div class="data-field-data">
+        <span *ngIf="!isDataUrl()">{{ data }}</span>
+        <a
+            *ngIf="isDataUrl()"
+            [href]="data"
+            class="cursor-pointer"
+            target="_blank"
+            >{{ data }}</a
+        >
+    </div>
+</div>
